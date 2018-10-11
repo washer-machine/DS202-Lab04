@@ -21,3 +21,7 @@ for (i in c(1:173))
 deaths = av %>% gather(key = Time, value = Deaths,na.rm=TRUE)
 deaths = deaths %>% mutate(Time = parse_number(Time))
 ```
+
+```{r}
+Deaths.Final = saveRDS(deaths, "deaths.RDS")
+```

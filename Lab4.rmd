@@ -25,3 +25,19 @@ deaths = deaths %>% mutate(Time = parse_number(Time))
 ```{r}
 Deaths.Final = saveRDS(deaths, "deaths.RDS")
 ```
+
+
+# Investigation Questions 
+
+# Lynn's Investigation Question
+
+Lynn wanted to verify the quote "Of the nine Avengers we see on screen — Iron Man, Hulk, Captain America, Thor, Hawkeye, Black Widow, Scarlet Witch, Quicksilver and The Vision — every single one of them has died at least once in the course of their time Avenging in the comics. In fact, Hawkeye died twice!"
+
+```{r}
+Summary = deaths %>% filter(Name.Alias %in% c("Anthony Edward \"Tony\" Stark","Robert Bruce Banner","Thor Odinson","Steven Rogers","Clinton Francis Barton","Pietro Maximoff","Wanda Maximoff","Natalia Alianovna Romanova","Victor Shade (alias)")) %>% group_by(Name.Alias) %>% select(Name.Alias,Deaths,Time) %>% summarise( no.deaths = max(Time))
+
+kable(Summary, caption = "Number of Deaths")
+```
+To determine whether or not this claim was true, I took a subset of all the main Avengers, then found out how many times each of them died. This claim happens to be true. Iron Man, Hulk, Captain America, Thor, Hawkeye, Black Widow, Scarlet Witch, Quicksilver and The Vision all have at least one recorded death, and Hawkeye (Clint) has two recorded deaths. 
+
+

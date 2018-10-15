@@ -2,7 +2,7 @@ Group members: Lynn Huang, Prateek Oberoi, Aisha Washington
 
 ```{r}
 av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
-av
+head(av)
 ```
 
 
@@ -55,11 +55,16 @@ av3 <- av3 %>% filter(Time == TimeR) %>% select(-TimeR)
 av3 %>% filter(Deaths == 'YES') %>% 
   ggplot(aes(x = Returns)) +
   geom_bar() +
-  facet_wrap(~Time)
+  facet_wrap(~Time)+
+  ggtitle('')
 
 # count of first deaths versus multiple deaths
-av3 %>% filter(Time == 1)av3 %>% summarise(count(Time))
+av3 %>% filter(Deaths == 'YES') %>% 
+  group_by(Time) %>% 
+  count() %>% 
+  ggplot(aes(x = Time))+
+  geom_bar(aes(weight = n))+
+  ggtitle('Count of Avengers Who Die Each Time')
 ```
 
-An avenger is more likely to return after one death than after two deaths.  
-However, we also see that while many Avengers die once, much fewer die multiple deaths.
+An Avenger is more likely to return after one death than after two deaths. However Avengers are also much more likely to die only once than they are to die multiple times.  Overall while it appears that the chances of returning to life after later deaths are low, Avengers shouldn't have to worry about dying multiple times (Unless they're Jocasta).  Also worth noting, after three deaths, the Avenger always returns according to our data.

@@ -68,3 +68,14 @@ av3 %>% filter(Deaths == 'YES') %>%
 ```
 
 An Avenger is more likely to return after one death than after two deaths. However Avengers are also much more likely to die only once than they are to die multiple times.  Overall while it appears that the chances of returning to life after later deaths are low, Avengers shouldn't have to worry about dying multiple times (Unless they're Jocasta).  Also worth noting, after three deaths, the Avenger always returns according to our data.
+
+# Prateek's Investigation Question
+  
+  The author of the article claims that 69 characters have died at least once. But could he be wrong? Could he, in some twisted ploy to deceive a bunch of nerds, intentionally mislead us into empassioned arguments, flame wars, and hate filled paroxysms? Why would he do such a thing? Could it be, that misinformation leads to more clicks, and therefore, more ad revenue? Was he hoping to go down in infamy, a final laugh in the face of those too trusting to fact check their data? Were his motivations more sinister than anything I can come up with? Let's find out: 
+  
+  ```{r}
+  c1 = nrow(av[av$Death1 == "YES",])
+  print(c1)
+  ```
+  
+  Nope, never mind he was telling the truth.

@@ -1,4 +1,5 @@
 Group members: Lynn Huang, Prateek Oberoi, Aisha Washington 
+Repository Link: https://github.com/washer-machine/DS202-Lab04
 
 ```{r}
 av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
